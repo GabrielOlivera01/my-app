@@ -45,8 +45,16 @@ namespace MyApp
             // Exemplos_PercorrendoArrays();
             // Exemplos_AlterandoValores();
 
-            
+            #endregion
 
+            #region EXCEPTIONS
+            // =========EXCEPTIONS============
+            // Exemplos_Exceptions();
+            // Exemplos_TryCatch();
+            // Exemplos_TratandoErros();
+            // Exemplos_DisparandoExcecoes();
+            // Exemplos_CustomExceptions();
+            // Exemplos_Finally();
 
             #endregion
         }
@@ -460,6 +468,145 @@ namespace MyApp
             primeiro.CopyTo(segundo, 0);
 
             Console.WriteLine(segundo[0]);
+        }
+    }
+
+    public static class ExceptionsClass
+    {
+        static void Exemplos_Exceptions()
+        {
+            var arr = new int[3];
+
+            for (int index = 0; index < 10; index++)
+            {
+                //System.IndexOutOfRangeException
+                Console.WriteLine(arr[index]);
+            }
+        }
+
+        static void Exemplos_TryCatch()
+        {
+            try
+            {
+                var arr = new int[3];
+
+                for (int index = 0; index < 10; index++)
+                {
+                    //System.IndexOutOfRangeException
+                    Console.WriteLine(arr[index]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Ops, algo deu errado");
+            }
+        }
+
+        static void Exemplos_TratandoErros()
+        {
+            //Tratamento sempre do mais especifico para o mais genérico
+            try
+            {
+                var arr = new int[3];
+
+                for (int index = 0; index < 10; index++)
+                {
+                    //System.IndexOutOfRangeException
+                    Console.WriteLine(arr[index]);
+                }
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Não encontrei o índice na lista");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Ops, algo deu errado");
+            }
+        }
+
+        static void Exemplos_DisparandoExcecoes()
+        {
+            // private static void Cadastrar(string texto)
+            // {
+            //     if (string.IsNullOrEmpty(texto))
+            //     {
+            //         throw new Exception("O texto não pode ser nulo ou vazio");
+            //     }
+            // }
+
+            // try
+            // {
+            //     Cadastrar(" ");
+            // }
+            // catch (ArgumentNullException ex)
+            // {
+            //     Console.WriteLine(ex.Message);
+            //     Console.WriteLine("O texto não pode ser vazio");
+            // }
+
+            // catch (Exception ex)
+            // {
+            //     Console.WriteLine(ex.Message);
+            //     Console.WriteLine("Falha ao cadastrar");
+            // }
+        }
+
+        static void Exemplos_CustomExceptions()
+        {
+            // try
+            // {
+            //     Salvar(" ");
+            // }
+            // catch (MinhaException ex)
+            // {
+            //     Console.WriteLine(ex.InnerException);
+            //     Console.WriteLine(ex.Message);
+            //     Console.WriteLine(ex.QuandoAconteceu);
+            //     Console.WriteLine("Exceção customizada");
+            // }
+
+            // private static void Salvar(string texto)
+            // {
+            //     texto = "";
+            //     if(string.IsNullOrEmpty(texto))
+            //     {
+            //         throw new MinhaException(DateTime.Now);
+            //     }
+            // }
+
+            // public class MinhaException : Exception
+            // {
+            //     public DateTime QuandoAconteceu { get; set; }
+            //     public MinhaException(DateTime date)
+            //     {
+            //         QuandoAconteceu = date;
+            //     }
+            // }
+        }
+
+        static void Exemplos_Finally()
+        {
+            try
+            {
+                //Code...
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Algo deu errado");
+            }
+            finally //Sempre vai passar por aqui
+            {
+                Console.WriteLine("Chegou ao fim");
+            }
         }
     }
 
