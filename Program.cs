@@ -39,7 +39,14 @@ namespace MyApp
 
             #endregion
 
-            #region
+            #region ARRAYS
+            // ==========ARRAYS===============
+            // Exemplos_Arrays();
+            // Exemplos_PercorrendoArrays();
+            // Exemplos_AlterandoValores();
+
+            
+
 
             #endregion
         }
@@ -331,7 +338,7 @@ namespace MyApp
         }
     }
 
-    public static class Moedas
+    public static class MoedasClass
     {
         static void Exemplos_TiposParaMoedas()
         {
@@ -365,5 +372,95 @@ namespace MyApp
             );
         }
 
+
     }
+
+    public static class ArrayClass
+    {
+        static void Exemplos_Arrays()
+        {
+            var meuArray = new int[5];
+            int[] meuArray2 = new int[5];
+            var meuArray3 = new int[5] { 23, 42, 54, 67, 99 };//Todas as posições tem que ser inicializadas
+
+            //Atribuindo valores para as posições do array
+            meuArray[0] = 12;
+            meuArray[1] = 13;
+            meuArray[2] = 14;
+            meuArray[3] = 15;
+            meuArray[4] = 16;
+
+            //Acessando os valores das posições do array
+            Console.WriteLine(meuArray[0]);
+            Console.WriteLine(meuArray[1]);
+            Console.WriteLine(meuArray[2]);
+            Console.WriteLine(meuArray[3]);
+            Console.WriteLine(meuArray[4]);
+
+        }
+
+        static void Exemplos_PercorrendoArrays()
+        {
+            var meuArray4 = new int[5] { 1, 2, 3, 4, 5 };
+            meuArray4[0] = 12;
+
+            for (var item = 0; item < meuArray4.Length; item++)
+            {
+                Console.WriteLine(meuArray4[item]);
+            }
+
+            foreach (var item in meuArray4)
+            {
+                Console.WriteLine($"Valor: {item}");
+            }
+
+            // var funcionarios = new Funcionario[5];
+            // funcionarios[0] = new Funcionario()
+            // {
+            //     Id = 276,
+            //     Nome = "Gabriel"
+            // };
+            // funcionarios[1] = new Funcionario()
+            // {
+            //     Id = 277,
+            //     Nome = "João"
+            // };
+
+            // Console.WriteLine("Funcionários Cadastrados:");
+            // Console.WriteLine("-------------------------");
+            // foreach (var funcionario in funcionarios)
+            // {
+            //     Console.WriteLine($"Id: {funcionario.Id}");
+            //     Console.WriteLine($"Nome: {funcionario.Nome}");
+            //     Console.WriteLine("-------------------------");
+            // }
+
+            // public struct Funcionario
+            // {
+            //     public int Id { get; set; }
+
+            //     public string Nome { get; set; }
+            // }
+        }
+
+        static void Exemplos_AlterandoValores()
+        {
+            //Arrays são objetos de referência (apontam para o mesmo local na memória)
+            // var primeiro = new int[4];
+            // var segundo = primeiro;
+
+            // primeiro[0] = 23;
+            // Console.WriteLine(segundo[0]);
+
+            //------------------------------------
+            var primeiro = new int[4];
+            var segundo = new int[4];
+
+            segundo[0] = primeiro[0];
+            primeiro.CopyTo(segundo, 0);
+
+            Console.WriteLine(segundo[0]);
+        }
+    }
+
 }
